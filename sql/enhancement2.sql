@@ -20,6 +20,4 @@ WHERE invId = 1;
 
 
 --Query Six
-UPDATE inventory SET invThumbnail = CONCAT('/phpmotors', invThumbnail);
-UPDATE inventory SET invImage = CONCAT('/phpmotors', invImage);
-
+UPDATE inventory SET invThumbnail = CONCAT('/phpmotors', invThumbnail), invImage = CONCAT('/phpmotors', invImage);
