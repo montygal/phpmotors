@@ -41,12 +41,12 @@
             } ?>
 
             <form action="/phpmotors/accounts/index.php" method="post">
-                <label for="email">Email</label>
-                <input type="email" name="clientEmail" id="email" <?php if (isset($clientEmail)) {
+                <label for="clientEmail">Email</label>
+                <input type="email" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {
                                                                         echo "value='$clientEmail'";
                                                                     } ?> required>
                 <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
-                <label for="password">Password</label>
+                <label for="clientPassword">Password</label>
                 <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                 <input type="submit" value="Submit">
                 <input type="hidden" name="action" value="login">

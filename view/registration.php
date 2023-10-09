@@ -29,19 +29,19 @@
             echo $_SESSION['message'];
         } ?>
         <form method="post" action="/phpmotors/accounts/index.php">
-            <label for="fname">First Name</label>
+            <label for="clientFirstname">First Name</label>
             <input type="text" name="clientFirstname" id="clientFirstname" <?php if (isset($clientFirstname)) {
                                                                                 echo "value='$clientFirstname'";
                                                                             } ?> required>
-            <label for="lname">Last Name</label>
-            <input type="text" name="clientLastname" id="lname" <?php if (isset($clientLastname)) {
+            <label for="clientLastname">Last Name</label>
+            <input type="text" name="clientLastname" id="clientLastname" <?php if (isset($clientLastname)) {
                                                                     echo "value='$clientLastname'";
                                                                 } ?> required>
-            <label for="email">Email</label>
-            <input type="email" name="clientEmail" id="email" <?php if (isset($clientEmail)) {
+            <label for="clientEmail">Email</label>
+            <input type="email" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {
                                                                     echo "value='$clientEmail'";
                                                                 } ?> required>
-            <label for="password">Password</label>
+            <label for="clientPassword">Password</label>
             <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
             <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
             <!-- Add the action name - value pair -->
