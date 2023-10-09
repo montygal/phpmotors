@@ -59,14 +59,15 @@ switch ($action) {
     // BS: You also need to get the classificationId from the form
     $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
-    $invMake = checkInvMake($invMake);
-    $invModel = checkInvModel($invModel);
-    $invDescription = checkInvDescription($invDescription);
-    $invImage = checkInvImage($invImage);
-    $invThumbnail = checkInvThumbnail($invThumbnail);
-    $invPrice = checkInvPrice($invPrice);
-    $invStock = checkInvStock($invStock);
-    $invColor = checkInvColor($invColor);
+    $invMake = checkinvMake($invMake);
+    $invModel = checkinvModel($invModel);
+    $invDescription = checkinvDescription($invDescription);
+    $invImage = checkinvImage($invImage);
+    $invThumbnail = checkinvThumbnail($invThumbnail);
+    $invPrice = checkinvPrice($invPrice);
+    $invStock = checkinvStock($invStock);
+    $invColor = checkinvColor($invColor);
+    $classificationId = checkclassificationId($classificationId);
     //Check for missing data
 
     // BS: Need to also check if the classificationId is empty
