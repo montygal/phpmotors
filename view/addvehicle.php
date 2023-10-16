@@ -37,12 +37,8 @@ $dropDownList .= '</select>';
             ?>
         </nav>
 
-
-        <?php
-        if (isset($_SESSION['message'])) {
-            echo $_SESSION['message'];
-        }
-        ?>
+            <?php echo $message;
+            ?>
         <!-- BS: no need to add an image  here: <img src="/phpmotors/images/no-image.png" alt="no image available"> -->
         <form method="post" action="/phpmotors/vehicles/index.php">
             <div class="cars">
@@ -87,9 +83,10 @@ $dropDownList .= '</select>';
             <input type="submit" name="submit">
             <!-- Add the action name - value pair -->
             <input type="hidden" name="action" value="cars">
-            <a href="/phpmotors/accounts/index.php?action=logout"></a>
-            <input type="hidden" name="action" value="logout">
+            <!-- <a href="/phpmotors/accounts/index.php?action=logout"></a>
+            <input type="hidden" name="action" value="logout"> -->
         </form>
+        <a href="/phpmotors/vehicles/index.php?action=cars"></a>
         <footer>
             <!-- BS: no nav tag here. <nav id="footer"> -->
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
