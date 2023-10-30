@@ -17,7 +17,8 @@ require_once '../library/functions.php';
 
 // Get the array of classifications
 $classifications = getClassifications();
-
+$navigation = navigation($classifactionList);
+echo $navigatiion;
 
 // Get the value from the action name - value pair
 $action = filter_input(INPUT_POST, 'action');
@@ -58,8 +59,11 @@ switch ($action) {
         $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        // $checkPassword = checkPassword($clientPassword);
-        // $existingEmail = checkExistingEmail($clientEmail);
+        $checkPassword = checkPassword($clientPassword);
+        $checkEmail = checkEmail($clientEmail);
+       
+
+      
 
 
         // Check for existing email address in the table
@@ -91,7 +95,7 @@ switch ($action) {
         $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
 
         // Send the data to the model
-        //$regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
+        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
 
         // Check and report the result
@@ -114,12 +118,12 @@ switch ($action) {
 
     case 'login':
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
-        // $clientEmail = checkEmail($clientEmail);
+        $checkEmail = checkEmail($clientEmail);
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        // $passwordCheck = checkPassword($clientPassword);
+        $checkPassword = checkPassword($clientPassword);
 
         // Run basic checks, return if errors
-        if (empty($clientEmail) || empty($passwordCheck)) {
+        if (empty($clientEmail) || empty($checkPassword)) {
             $message = '<p class="notice">Please provide a valid email address and password.</p>';
             include '../view/login.php';
             exit;

@@ -32,7 +32,7 @@
                 <p>Names cannot exceed 30 characters.</p>
                 <p>Name</p>
                 <input type="text" id="classificationName" name="classificationName" maxlength="30" <?php if (isset($classificationName)) {
-                                                                                                        echo "value='$classificationName'";
+                                                                                                 echo "value='$classificationName'";
                                                                                                     } ?> required>
                 <input type="submit" name="submit">
                 <!-- Add the action name - value pair -->

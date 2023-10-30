@@ -11,6 +11,7 @@ require_once '../library/functions.php';
 
 $classificationList = getClassifications();
 
+
 // $dropDownList = '<select name="classificationId" id="classificationId">';
 // foreach ($classificationList as $inventoryTwo) {
 //   $dropDownList .= '<option value="' . $inventoryTwo['classificationId'] . '">' . $inventoryTwo['classificationName'] . '</option>';

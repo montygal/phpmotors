@@ -36,15 +36,16 @@
 
             <h1>PHP Motors Login</h1>
             <?php
-            if (isset($_SESSION['message'])) {
-                echo $_SESSION['message'];
-            } ?>
+            if (isset($message)) {
+                echo $message;
+            }
+            ?>
 
-            <form action="/phpmotors/accounts/index.php" method="post">
+            <form method="post" action="/phpmotors/accounts/index.php">
                 <label for="clientEmail">Email</label>
                 <input type="email" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {
-                                                                        echo "value='$clientEmail'";
-                                                                    } ?> required>
+                                                                            echo "value='$clientEmail'";
+                                                                        } ?> required>
                 <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
                 <label for="clientPassword">Password</label>
                 <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">

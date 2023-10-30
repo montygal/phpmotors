@@ -76,6 +76,8 @@ function checkclassificationId($classificationId)
     return $valClassification;
 }
 
+//This function receives the $carclassifications array as a parameter
+//and builds the navigation list HTML around the values in the array:
 function navigation($classificationList)
 {
     $navList = "<a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a>";
