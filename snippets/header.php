@@ -17,6 +17,9 @@ if (!isset($_SESSION['loggedin'])) {
 ?>
 
 <a href="/phpmotors/accounts/?action=login">My Account</a>
+<?php if(isset($cookieFirstname)){
+ echo "<span>Welcome $cookieFirstname</span>";
+} ?>
 
 
 <!-- BS: You should only have a My Account link. The register link is on the login page.
