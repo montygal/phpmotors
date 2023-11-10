@@ -31,27 +31,31 @@ switch ($action) {
     case 'registration':
         include '../view/registration.php';
         break;
+    
+    case 'Login':
+        include '../view/login.php';
+        break;
 
 
-        // case 'admin':
-        //     // A valid user exists, log them in
-        //     $_SESSION['loggedin'] = TRUE;
-        //     // Remove the password from the array
-        //     // the array_pop function removes the last
-        //     // element from an array
-        //     array_pop($clientData);
-        //     // Store the array into the session
-        //     $_SESSION['clientData'] = $clientData;
-        //     // Send them to the admin view
-        //     include '../view/admin.php';
-        //     exit;
-        //     break;
+    case 'admin':
+        // A valid user exists, log them in
+        $_SESSION['loggedin'] = TRUE;
+        // Remove the password from the array
+        // the array_pop function removes the last
+        // element from an array
+        array_pop($clientData);
+        // Store the array into the session
+        $_SESSION['clientData'] = $clientData;
+        // Send them to the admin view
+        include '../view/admin.php';
+        exit;
+        break;
 
-        // case 'logout':
-        //     unset($_SESSION['message']);
-        //     include '../index.php';
-        //     exit;
-        //     break;
+    case 'logout':
+        unset($_SESSION['message']);
+        include '../index.php';
+        exit;
+        break;
 
     case 'register':
         // Filter and store the data
@@ -77,7 +81,8 @@ switch ($action) {
             exit;
 
             // Check and report the result
-            if ($regOutcome === 1) {$_SESSION['message'] = "Thanks for registering $clientFirstname. Please use your email and password to login.";
+            if ($regOutcome === 1) {
+                $_SESSION['message'] = "Thanks for registering $clientFirstname. Please use your email and password to login.";
                 include header('Location: /phpmotors/accounts/?action=login');
                 exit;
             } else {
