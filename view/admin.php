@@ -32,7 +32,7 @@ if (!isset($_SESSION['loggedin'])) {
             echo $_SESSION['message'];
         }
         ?>
-   
+
 
 
 
@@ -53,7 +53,9 @@ if (!isset($_SESSION['loggedin'])) {
             <a href="/phpmotors/accounts/index.php?action=admin"></a>
             <input type="hidden" name="action" value="admin">
             <a href="/phpmotors/accounts/index.php?action=logout"></a>
-            <input type="hidden" name="action" value="logout">
+            <input type="button" name="action" value="logout">
+            <a href="/phpmotors/accounts/index.php?action=Login"></a>
+            <input type="button" name="action" value="Login">
 
         </main>
         <?php unset($_SESSION['message']); ?>

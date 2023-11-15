@@ -1,4 +1,3 @@
-
 <?php
 //PHP main controller
 //This file is accessed at http://lvh.me/phpmotors/

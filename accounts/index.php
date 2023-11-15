@@ -151,7 +151,7 @@ switch ($action) {
         // element from an array
         array_pop($clientData);
         // Store the array into the session
-        $_SESSION['clientData'] = $clientData;
+        $_SESSION['getClient, getLevel, getClientId'] = $clientData;
         // Send them to the admin view
         include '../view/admin.php';
         exit;
