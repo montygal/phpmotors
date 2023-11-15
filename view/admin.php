@@ -2,8 +2,7 @@
 if (!isset($_SESSION['loggedin'])) {
     header('Location: /phpmotors/accounts/index.php');
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -49,14 +48,6 @@ if (!isset($_SESSION['loggedin'])) {
             <a href='/phpmotors/vehicles/index.php'>Vehicles</a>";
             }
             ?>
-
-            <a href="/phpmotors/accounts/index.php?action=admin"></a>
-            <input type="hidden" name="action" value="admin">
-            <a href="/phpmotors/accounts/index.php?action=logout"></a>
-            <input type="button" name="action" value="logout">
-            <a href="/phpmotors/accounts/index.php?action=Login"></a>
-            <input type="button" name="action" value="Login">
-
         </main>
         <?php unset($_SESSION['message']); ?>
         <footer>

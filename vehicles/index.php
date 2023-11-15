@@ -10,7 +10,7 @@ include '../library/connections.php';
 require_once '../library/functions.php';
 
 $classificationList = getClassifications();
-
+$navList=navigation($classifications);
 
 // $dropDownList = '<select name="classificationId" id="classificationId">';
 // foreach ($classificationList as $inventoryTwo) {
@@ -20,12 +20,12 @@ $classificationList = getClassifications();
 
 // BS: You need to have the create navigation code here, too.
 // BS: This way is more simple. Just a tags, rather than an unordered list 
-$navList = "<a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a>";
-foreach ($classificationList as $classification) {
-  $navList .= "<a href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a>";
-}
+// $navList = "<a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a>";
+// foreach ($classificationList as $classification) {
+//   $navList .= "<a href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a>";
+// }
 
-$navList = navigation($classificationList);
+// $navList = navigation($classificationList);
 
 // Get the value from the action name - value pair
 $action = filter_input(INPUT_POST, 'action');

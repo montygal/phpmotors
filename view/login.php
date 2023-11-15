@@ -51,8 +51,6 @@
                 <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                 <input type="submit" value="Submit">
                 <input type="hidden" name="action" value="login">
-                <a href="/phpmotors/accounts/index.php?action=logout"></a>
-                <input type="hidden" name="action" value="logout">
             </form>
         </div>
 

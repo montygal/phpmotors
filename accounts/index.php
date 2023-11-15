@@ -17,8 +17,8 @@ require_once '../library/functions.php';
 
 // Get the array of classifications
 $classifications = getClassifications();
-$navigation = navigation($classifactionList);
-echo $navigatiion;
+$navList = navigation($classifications);
+
 
 // Get the value from the action name - value pair
 $action = filter_input(INPUT_POST, 'action');
@@ -31,25 +31,11 @@ switch ($action) {
     case 'registration':
         include '../view/registration.php';
         break;
-    
+
     case 'Login':
         include '../view/login.php';
         break;
 
-
-    case 'admin':
-        // A valid user exists, log them in
-        $_SESSION['loggedin'] = TRUE;
-        // Remove the password from the array
-        // the array_pop function removes the last
-        // element from an array
-        array_pop($clientData);
-        // Store the array into the session
-        $_SESSION['clientData'] = $clientData;
-        // Send them to the admin view
-        include '../view/admin.php';
-        exit;
-        break;
 
     case 'logout':
         unset($_SESSION['message']);
@@ -151,8 +137,12 @@ switch ($action) {
         // element from an array
         array_pop($clientData);
         // Store the array into the session
-        $_SESSION['getClient, getLevel, getClientId'] = $clientData;
+        $_SESSION['clientData'] = $clientData;
         // Send them to the admin view
         include '../view/admin.php';
         exit;
+
+        default:
+        include '../view/admin.php';
+        break;
 }
