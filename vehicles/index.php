@@ -10,7 +10,7 @@ include '../library/connections.php';
 require_once '../library/functions.php';
 
 $classificationList = getClassifications();
-$navList=navigation($classifications);
+$navList = navigation($classifications);
 
 // $dropDownList = '<select name="classificationId" id="classificationId">';
 // foreach ($classificationList as $inventoryTwo) {
@@ -43,8 +43,8 @@ switch ($action) {
   case 'addCar':
     include '../view/addvehicle.php';
     break;
-    // BS: end adding two cases. The other cases are to handle the data when the form is submitted.
 
+    // BS: end adding two cases. The other cases are to handle the data when the form is submitted.
     // Code to deliver the views will be here
   case 'cars':
     // Filter and store the data
@@ -119,6 +119,30 @@ switch ($action) {
       exit;
     }
     break;
+
+
+    //Get vehicles by classificationId 
+    //Used for starting Update & Delete process 
+    //********************************** */ 
+  case 'getInventoryItems':
+    // Get the classificationId 
+    $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
+    // Fetch the vehicles by classificationId from the DB 
+    $inventoryArray = getInventoryByClassification($classificationId);
+    // Convert the array to a JSON object and send it back 
+    echo json_encode($inventoryArray);
+    break;
+
+  case 'mod':
+    $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+    $invInfo = getInvItemInfo($invId);
+    if (count($invInfo) < 1) {
+      $message = 'Sorry, no vehicle information could be found.';
+    }
+    include '../view/vehicle-update.php';
+    exit;
+    break;
+
 
   default:
     include '../view/vehiclemanagement.php';

@@ -37,7 +37,7 @@ switch ($action) {
         break;
 
 
-    case 'logout':
+    case 'Logout':
         unset($_SESSION['message']);
         include '../index.php';
         exit;

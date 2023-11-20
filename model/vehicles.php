@@ -3,7 +3,8 @@
 
 //function addCars($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor){
 // BS: also need to ask for the classificationId
-function addCars($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId){
+function addCars($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId)
+{
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
     // The SQL statement
@@ -35,9 +36,10 @@ function addCars($invMake, $invModel, $invDescription, $invImage, $invThumbnail,
     $stmt->closeCursor();
     // Return the indication of success (rows changed)
     return $rowsChanged;
-   }
+}
 
-function addClassification($classificationName){
+function addClassification($classificationName)
+{
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
     // The SQL statement
@@ -57,6 +59,30 @@ function addClassification($classificationName){
     $stmt->closeCursor();
     // Return the indication of success (rows changed)
     return $rowsChanged;
-   }
+}
 
-?>
+// Get vehicles by classificationId 
+function getInventoryByClassification($classificationId)
+{
+    $db = phpmotorsConnect();
+    $sql = ' SELECT * FROM inventory WHERE classificationId = :classificationId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
+    $stmt->execute();
+    $inventory = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $inventory;
+}
+
+// Get vehicle information by invId
+function getInvItemInfo($invId)
+{
+    $db = phpmotorsConnect();
+    $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->execute();
+    $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $invInfo;
+}
