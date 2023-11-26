@@ -38,10 +38,66 @@ switch ($action) {
 
 
     case 'Logout':
-        unset($_SESSION['message']);
+        SESSION_destroy();
         include '../index.php';
         exit;
         break;
+
+    case 'client-update':
+        $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+
+
+        // Check for existing email address in the table
+        $existingEmail = checkExistingEmail($clientEmail);
+
+        // if ($existingEmail) {
+        //     $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+        //     include '../view/login.php';
+        //     exit;
+        // }
+        $updateResult = updateClient($clientFirstname, $clientLastname, $clientEmail);
+
+        if ($updateResult) {
+            $message = "<p class='notify'>Congratulations, the update was successful!</p>";
+            $_SESSION['message'] = $message;
+            header('../view/admin.php');
+            exit;
+        } else {
+            $message = "<p>Error. The update was not successful.</p>";
+            include '../view/client-update.php';
+            exit;
+        }
+        break;
+
+    case 'password-update':
+        $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $checkPassword = checkPassword($clientPassword);
+
+        // Hash the checked password
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
+        if (empty($checkPassword)) {
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../view/client-update.php';
+            exit;
+        }
+        // Send the data to the model
+        $regOutcome = updatePassword($hashedPassword);
+        // Check and report the result
+        if ($regOutcome === 1) {
+            $_SESSION['message'] = "Thanks for updating your password!";
+            include header('Location: /phpmotors/accounts/?action=login');
+            exit;
+        } else {
+            $message = "<p>Sorry $clientFirstname, but the password update failed. Please try again.</p>";
+            include '../view/client-update.php';
+            exit;
+        }
+
+        break;
+
 
     case 'register':
         // Filter and store the data
@@ -142,7 +198,7 @@ switch ($action) {
         include '../view/admin.php';
         exit;
 
-        default:
+    default:
         include '../view/admin.php';
         break;
 }

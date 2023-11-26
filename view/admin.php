@@ -36,7 +36,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
         <main>
-            <h1>Thank you for logging in <?php echo $_SESSION['clientData']['clientFirstname'] ?></h1>
+            <h1>You are logged in!<?php echo $_SESSION['clientData']['clientFirstname'] ?></h1>
             <ul>
                 <li>Client First Name:<?php echo $_SESSION['clientData']['clientFirstname'] ?></li>
                 <li>Client Last Name:<?php echo $_SESSION['clientData']['clientLastname'] ?></li>
@@ -44,10 +44,15 @@ if (!isset($_SESSION['loggedin'])) {
             </ul>
             <?php
             if ($_SESSION['clientData']['clientLevel'] > 1) {
-                echo "<p>Thank you for being a valued customer! We appreciate your loyalty!</p>
+                echo "<p>This is for administrative changes to the database.</p>
             <a href='/phpmotors/vehicles/index.php'>Vehicles</a>";
             }
             ?>
+            <?php
+            if ($_SESSION['clientData']['clientLevel'] < 2) {
+                echo "<a href='/phpmotors/accounts/index.php?action=client-update'>Update Account Information</a>";
+            }
+            ?>    
         </main>
         <?php unset($_SESSION['message']); ?>
         <footer>

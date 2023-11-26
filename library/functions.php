@@ -87,7 +87,7 @@ function navigation($classificationList)
     return $navList;
 }
 
-    // Build the classifications select list 
+// Build the classifications select list 
 function buildClassificationList($classifications)
 {
     $classificationList = '<select name="classificationId" id="classificationList">';
