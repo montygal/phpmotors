@@ -113,3 +113,17 @@ function buildVehiclesDisplay($vehicles)
     $dv .= '</ul>';
     return $dv;
 }
+
+function clickVehiclesDisplay($vehicles)
+{
+    $dv = '<ul id="inv-display">';
+    foreach ($vehicles as $vehicle) {
+        $dv .= "<a href='/phpmotors/vehicles/?action='>text</a>";
+        $dv .= "<a href='/phpmotors/vehicles/?action='>picture</a>";
+        $dv .= "<h2>$vehicle[invId]</h2>"; 
+        $dv .= "<span>$vehicle[invPrice]</span>";
+        $dv .= '</li>';
+    }
+    $dv .= '</ul>';
+    return $dv;
+}
