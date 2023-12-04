@@ -35,8 +35,8 @@
         ?>
         <!-- BS: You don't need this because it's created above with echo $navList;
     <div class="navigation">
-        <?php //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; 
-        ?> 
+         //include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; 
+         
     </div>
 -->
         <h1>Welcome to PHP motors!</h1>
