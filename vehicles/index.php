@@ -8,6 +8,7 @@ include '../model/vehicles.php';
 include '../library/connections.php';
 // Get the functions library
 require_once '../library/functions.php';
+require_once '../model/reviews-model.php';
 
 $classifications = getClassifications();
 $navList = navigation($classifications);
@@ -228,6 +229,21 @@ switch ($action) {
     }
     include '../view/classification.php';
     break;
+
+    case 'classificationTwo':
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        
+        $vehiclesDetail = getVehicleInformation($invId);
+     
+        if (empty($vehiclesDetail)){
+          $message = "<p>There was an error while getting the vehicle's information</p>";
+        } else{
+          $vehicleDisplay = clickVehiclesDisplay($vehiclesDetail);  
+        
+        }
+        include '../view/vehicle-detail.php';
+        break;
+    
 
   default:
     $classificationList = buildClassificationList($classifications);

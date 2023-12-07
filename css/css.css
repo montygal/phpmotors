@@ -1,50 +1,101 @@
-@media screen and (max-width: 400px){
-    body{
+@media screen and (max-width: 400px) {
+    body {
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 400px){
-    .delorean{
+@media screen and (max-width: 400px) {
+    .delorean {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 400px){
-    .car{
+@media screen and (max-width: 400px) {
+    .car {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 400px){
-    .mainbox{
+@media screen and (max-width: 400px) {
+    .mainbox {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 400px){
-    .left{
+@media screen and (max-width: 400px) {
+    .left {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 400px){
-    .right{
+@media screen and (max-width: 400px) {
+    .right {
         display: flex;
         flex-direction: column;
     }
 }
 
-.cars nav{
+html{
+    box-sizing: border-box;
+   }
+   
+   *, *:before, *:after{
+    box-sizing: inherit;
+   }
+
+/* For vehicle display in classification view */
+
+#inv-display {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+#inv-display h2{
+    font-size: 1rem;
+}
+
+#inv-display li {
+    max-width: 200px;
+    flex: 1 0 auto;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+#inv-display div {
+    width: 100%;
+}
+
+#inv-display {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#inv-display li {
+    margin-bottom: .5em;
+    border: 1px #ccc solid;
+    list-style-type: none;
+    flex: 1 1 auto;
+}
+
+#inv-display li img {
+    max-width: 100%;
+}
+
+.cars nav {
     font-size: 2em;
     background-color: #8d8d8d;
 }
 
-.cars nav ul{
+.cars nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -52,45 +103,45 @@
     justify-content: space-around;
 }
 
-.cars nav ul li{
+.cars nav ul li {
     cursor: pointer;
     padding: 0.5rem;
 }
 
-.cars nav ul li:hover{
+.cars nav ul li:hover {
     background-color: #4c96d7;
 }
 
-.delorean{
-    color:blue;
+.delorean {
+    color: blue;
 }
 
 
-.grid{
+.grid {
     display: grid;
 }
 
-.mainbox{
+.mainbox {
     display: flex;
 }
 
-.left{
+.left {
     display: flex;
     justify-content: flex-start;
 }
 
-.right{
+.right {
     justify-content: flex-end;
-    
+
 }
 
-.upgrade1{
+.upgrade1 {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 }
 
-.upgrade2{
+.upgrade2 {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -101,33 +152,23 @@ input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
 
 input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
 
 input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
-
-.register{
-    display: flex;
-    flex-direction: column;
-    max-width: 20%;
-    border-radius: 5px;
-    background-color: rgb(108, 108, 213);
-    padding: 20px;
-      
 }
 
-.login{
+.register {
     display: flex;
     flex-direction: column;
     max-width: 20%;
@@ -137,7 +178,17 @@ input[type=password] {
 
 }
 
-.cars{
+.login {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    border-radius: 5px;
+    background-color: rgb(108, 108, 213);
+    padding: 20px;
+
+}
+
+.cars {
     display: flex;
     flex-direction: column;
     max-width: 40%;
@@ -146,7 +197,7 @@ input[type=password] {
     padding: 20px;
 }
 
-.classification{
+.classification {
     display: flex;
     flex-direction: column;
     max-width: 20%;
@@ -154,6 +205,7 @@ input[type=password] {
     background-color: rgb(108, 108, 213);
     padding: 20px;
 }
+
 /*CNTRL SHIFT R*/
 
 /* BS styles */
@@ -239,17 +291,17 @@ footer p {
     border-radius: 8px;
     box-shadow: 0 0 20px 8px #d0d0d0;
     padding: 20px;
-  }
+}
 
 .vehicle-management {
     padding: 20px;
     max-width: 600px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+}
 
-.garrik{
+.garrik {
     display: flex;
     justify-content: center;
 }

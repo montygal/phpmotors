@@ -104,7 +104,7 @@ function buildVehiclesDisplay($vehicles)
     $dv = '<ul id="inv-display">';
     foreach ($vehicles as $vehicle) {
         $dv .= '<li>';
-        $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+        $dv .= "<a href='/phpmotors/vehicles/?action=classificationTwo&invId=$vehicle[invId]'><img src='$vehicle[invThumbnail]' alt='$vehicle[invMake] $vehicle[invModel]'></a>";
         $dv .= '<hr>';
         $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
         $dv .= "<span>$vehicle[invPrice]</span>";
@@ -114,16 +114,21 @@ function buildVehiclesDisplay($vehicles)
     return $dv;
 }
 
-function clickVehiclesDisplay($vehicles)
+//Take vehicles information and wrap it in HTML
+function clickVehiclesDisplay($displays)
 {
-    $dv = '<ul id="inv-display">';
-    foreach ($vehicles as $vehicle) {
-        $dv .= "<a href='/phpmotors/vehicles/?action='>text</a>";
-        $dv .= "<a href='/phpmotors/vehicles/?action='>picture</a>";
-        $dv .= "<h2>$vehicle[invId]</h2>"; 
-        $dv .= "<span>$vehicle[invPrice]</span>";
+    $dv = '<ul>';
+    foreach ($displays as $display) {
+        $dv .= '<li>';
+        $dv .= "<img class= 'imgDisplay' src='{$display['invImage']}' alt= 'Image of {$display['invMake']} {$display['invModel']}'>";
+        $dv .= "<h3>{$display['invMake']} {$display['invModel']}</h3>";
+        $dv .= "<p>Price: $" . number_format($display['invPrice'], 2) . "</p>";
+        $dv .= "<span class='word-wrap'>Description: <br>{$display['invDescription']}</span>";
+        $dv .= "<p>Color: {$display['invColor']}</p>";
+        $dv .= "<p>Number in Stock: {$display['invStock']}</p>";
         $dv .= '</li>';
-    }
     $dv .= '</ul>';
     return $dv;
+}
+
 }

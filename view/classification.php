@@ -12,16 +12,20 @@
 
 <body>
     <main>
-        <h1><?php echo $classificationName; ?> vehicles</h1>
+        <div class="view">
+            <h1><?php echo $classificationName; ?> vehicles</h1>
 
-        <?php if (isset($message)) {
-            echo $message;
-        }
-        ?>
+            <?php if (isset($message)) {
+                echo $message;
+            }
+            ?>
 
-        <?php if (isset($vehicleDisplay)) {
-            echo $vehicleDisplay;
-        } ?>
+
+
+            <?php if (isset($vehicleDisplay)) {
+                echo $vehicleDisplay;
+            } ?>
+        </div>
     </main>
 </body>
 

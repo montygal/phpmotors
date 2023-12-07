@@ -26,11 +26,11 @@
 
 
         <form method="post" action="/phpmotors/reviews/index.php">
+
             <label for="review">Leave a review!</label>
             <textarea id="reviewDescription" name="reviewDescription" rows="10"></textarea>
-            <!-- Add the action name - value pair -->
             <input type="submit" value="review" name="Submit">
-            <input type="hidden" name="action" value="review">
+            <input type="hidden" name="action" value="delete-review">
         </form>
     </div>
     <footer>

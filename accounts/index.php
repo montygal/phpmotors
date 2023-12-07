@@ -13,7 +13,7 @@ require_once '../model/main-model.php';
 // Get the accounts model
 require_once '../model/accounts-model.php';
 require_once '../library/functions.php';
-
+require_once '../model/reviews-model.php';
 
 // Get the array of classifications
 $classifications = getClassifications();
