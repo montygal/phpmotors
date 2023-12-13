@@ -11,34 +11,69 @@
 </head>
 
 <body>
-    <header>
-        <nav id="header">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+    <div>
+        <!-- header section -->
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+        <!-- Navigation section -->
+        <nav>
+            <?php echo $navList; ?>
         </nav>
 
-        <nav id="navigation">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
-        </nav>
-    </header>
-    <div class="register">
-        <?php
-        echo $message ?>
 
-
-        <form method="post" action="/phpmotors/reviews/index.php">
-            <label for="review">Leave a review!</label>
-            <textarea id="reviewDescription" name="reviewDescription" rows="10"></textarea>
-            <!-- Add the action name - value pair -->
-            <input type="submit" value="review" name="Submit">
-            <input type="hidden" name="action" value="review">
-        </form>
     </div>
-    <footer>
-        <nav id="footer">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
-        </nav>
-        <?php unset($_SESSION['message']); ?>
-    </footer>
+
+    <main>
+
+
+        <?php if (isset($message)) {
+            echo $message;
+        }
+        ?>
+
+
+        <?php if (isset($vehicleDisplay)) {
+            echo $vehicleDisplay;
+        } ?>
+
+        <?php if (isset($reviews)) {
+            echo $reviews;
+        } ?>
+        <p>Reviews can be seen at the bottom of the page.</p>
+        <h1>CUSTOMER REVIEWS</h2>
+            <p>Login to write a review!</p><a href="/phpmotors/accounts/?action=login">Login</label>
+                <input type="submit" value="Submit">
+                <input type="hidden" name="action" value="login">
+                <?php $_SESSION['loggedin'] = TRUE; ?>
+                <form method="post" action="/phpmotors/reviews/index.php">
+                    <label for="reviewDescription">Leave a review!</label><?php $firstInitial = substr("[clientFirstName", 0);
+                                                                            echo "value"($firstInitial, $clientLastName);
+                                                                            ?>
+                    <textarea id="reviewDescription" name="reviewDescription" rows="10"></textarea>
+                    <input type="submit" value="review" name="Leave A Review">
+                    <input type="hidden" name="action" value="review">
+                    <input type="hidden" name="invId" value="
+        <?php if (isset($invInfo['invId'])) {
+            echo $invInfo['invId'];
+        } elseif (isset($invId)) {
+            echo $invId;
+        } ?>
+        ">
+                    <input type="hidden" name="action" value="
+        <?php if (isset($clientReview['clientId'])) {
+            echo $clientReview['clientId'];
+        } elseif (isset($clientId)) {
+            echo $clientId;
+        }
+        ?>
+        ">
+            </form>
+                </div>
+                <footer>
+                    <nav id="footer">
+                        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
+                    </nav>
+                    <?php unset($_SESSION['message']); ?>
+                </footer>
 </body>
 
 </html>

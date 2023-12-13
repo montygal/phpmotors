@@ -146,3 +146,14 @@ function getVehicleInformation($invId)
     $stmt->closeCursor();
     return $invId;
 }
+
+// Get information for all vehicles
+function getVehicles(){
+	$db = phpmotorsConnect();
+	$sql = 'SELECT invId, invMake, invModel FROM inventory';
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	$invInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$stmt->closeCursor();
+	return $invInfo;
+}

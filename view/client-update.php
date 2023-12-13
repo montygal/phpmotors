@@ -2,8 +2,7 @@
 if (!isset($_SESSION['loggedin'])) {
     header('Location: /phpmotors/accounts/index.php');
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,7 +46,7 @@ if (!isset($_SESSION['loggedin'])) {
             <input type="hidden" name="action" value="client-update">
             
         </form>
-        <!-- <a href="/phpmotors/accounts/index.php?action=client-update"></a> -->
+        
         <!--This form is for updating a client password-->
         <form method="post" action="/phpmotors/accounts/index.php">
             <label for="clientPassword">Update Password</label>
@@ -56,7 +55,7 @@ if (!isset($_SESSION['loggedin'])) {
             <input type="submit" name="submit"value="Update Password">
             <input type="hidden" name="action" value="password-update">
         </form>
-        <!-- <a href="/phpmotors/accounts/index.php?action=password-update"></a> -->
+       
     </div>
     <footer>
         <nav id="footer">

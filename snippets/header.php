@@ -5,6 +5,7 @@
 if (isset($_SESSION['loggedin'])) {
     echo "<a href='/phpmotors/accounts/?action=Logout'>Logout</a>";
     echo "<a href='/phpmotors/accounts/index.php'> Welcome".$_SESSION ['clientData']['clientFirstname']."</a>";
+    echo "<a href='/phpmotors/reviews/?action=review'>Please leave a review!</a>";
 }
 else{
     echo "<a href='/phpmotors/accounts/?action=Login'>My Account</a>";

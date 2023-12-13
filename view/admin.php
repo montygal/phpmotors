@@ -41,6 +41,7 @@ if (!isset($_SESSION['loggedin'])) {
                 <li>Client First Name:<?php echo $_SESSION['clientData']['clientFirstname'] ?></li>
                 <li>Client Last Name:<?php echo $_SESSION['clientData']['clientLastname'] ?></li>
                 <li>Client Email:<?php echo $_SESSION['clientData']['clientEmail'] ?></li>
+                <li>Reviews:<?php echo $_SESSION['formerReviews']['clientReview']?></li>
             </ul>
             <?php
             if ($_SESSION['clientData']['clientLevel'] > 1) {

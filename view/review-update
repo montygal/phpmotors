@@ -1,0 +1,57 @@
+<?php
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: /phpmotors/accounts/index.php');
+}?><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Motors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/phpmotors/css/css.css">
+</head>
+
+<body>
+    <header>
+        <nav id="header">
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+        </nav>
+
+        <nav id="navigation">
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
+        </nav>
+    </header>
+    <div class="register">
+        <?php
+        echo $message ?>
+
+        <!--This form is for updating a review-->
+        <form method="post" action="/phpmotors/reviews/index.php">
+        <label for="reviewDescription">Update Your Review</label>
+            <textarea id="reviewDescription" name="reviewDescription" rows="10"></textarea>
+            <!-- Add the action name - value pair -->
+            <input type="submit" value="review" name="Leave A Review">
+            <input type="hidden" name="action" value="update-review">
+            <input type="hidden" name="invId" value="
+<?php if (isset($invInfo['invId'])) {
+    echo $invInfo['invId'];
+} elseif (isset($invId)) {
+    echo $invId;
+} ?>
+">
+        </form>
+        <?php
+                echo "<a href='/phpmotors/reviews/index.php?action=update-review'>Update Your Review</a>";
+            ?> 
+    </div>
+    <footer>
+        <nav id="footer">
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
+        </nav>
+        <?php unset($_SESSION['message']); ?>
+    </footer>
+</body>
+
+</html>
